@@ -1,14 +1,13 @@
 /**
  * Created by yishan on 17/4/22.
  */
- var express =    require('express')
 var path = require('path');
 var fs = require('fs');
-var app = express()
 
 //1.指定文件夹的绝对路径
 var abslot_path = path.resolve('../files')
-
+//2.json的名称
+var filename = 'test1'
 
 //封装打印--console.log写的次数太多烦得很
 function log(msg) {
@@ -17,23 +16,19 @@ function log(msg) {
 }
 
 
-
 //json-母版   是母版 不是模板 - -!
-var json =
-    {
+var json = {
         id: 0,
-        label: 'files',//这个是根目录的名称
-        sup:'',//父级的路径
+        label: 'files',//这个是根目录的名称  根据传入的路径改变
+        sup: '',//父级的路径
         children: []//如果有子目录的话 就要有这个数组
-    }
+}
     ;
-//封装遍历方法
-var id = 0;
 //记录父级目录
 var sup_mark = path.resolve('../files');
 //获取文件列表
 function getDir_list(abslot_path) {
-
+    abslot_path = path.resolve(abslot_path)
     //记录当前文件夹的路径
     fs.readdir(abslot_path, function (err, files) {
 
@@ -53,7 +48,7 @@ function getDir_list(abslot_path) {
                         label: val,
                         sup: sup_path,
                         //children: new Set()
-                        children:[]
+                        children: []
                     };
                     //log('当前文件是---' + val+'父文件'+sup_path+'item===='+item);
                     //判断父级文件
@@ -83,13 +78,9 @@ function getDir_list(abslot_path) {
         });
 
 
-
-
     });
 
 }
-
-
 
 
 /**
@@ -102,25 +93,23 @@ function parent_dir(parent, child) {
     //先判断第一个节点是否是父节点
     var len = parent.label.length;
     var text = child.sup.substr(-len);
-    if(parent.label==text){
+    if (parent.label == text) {
         parent.children.push(child);
-    }else
-    {
-           //查找 id-1的目录
-           var arr = parent.children;
-           //遍历数组
-                search(arr,child)
+    } else {
+        //查找 id-1的目录
+        var arr = parent.children;
+        //遍历数组
+        search(arr, child)
 
-
-       }
+    }
 
 }
 
 //写入文件
-function writefile(fp,data){
+function writefile(fp, data) {
     data = JSON.stringify(data)
-    fs.writeFile(fp,data,{flag:'w+'}, function (err) {
-        if(err==null){
+    fs.writeFile(fp, data, {flag: 'w+'}, function (err) {
+        if (err == null) {
             log('操作成功')
         }
     })
@@ -128,14 +117,12 @@ function writefile(fp,data){
 //将json写入到文件
 
 
-
-
 /**
  *  查找传入节点的父节点 并加入到父节点的数组中
  * @param arr   总json
  * @param child  传入创建的json子节点
  */
-function search(arr,child){
+function search(arr, child) {
     //val是每个json节点
     arr.forEach(function (val) {
         //1.先判断当前遍历的节点是否是文件夹--是否有children属性
@@ -149,18 +136,28 @@ function search(arr,child){
 
                 //val.children.add(child);
                 val.children.push(child);
-            }else {
+            } else {
                 //当前节点不是传入child的父节点  继续向下遍历
-                search(val.children,child);
+                search(val.children, child);
+                writefile(filename,json)
             }
 
         }
     })
 }
 
-app.use('/', function (req,res) {
-    log('--------')
-    log(json)
-    res.json(json)
-});
-app.listen(3000)
+
+/**
+ *
+ * @param fp 指定遍历的
+ * @param fname
+ * @param root
+ */
+module.exports = function (fp,fname) {
+    filename = fname;
+    //路径切片
+    var fpath = fp.split('/');
+    json.label = fpath[fpath.length-1];
+    getDir_list(fp);
+
+};

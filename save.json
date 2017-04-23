@@ -1,0 +1,132 @@
+{
+  "id": 0,
+  "label": "data",
+  "sup": "",
+  "children": [
+    {
+      "label": ".DS_Store",
+      "sup": "/Users/yishan/Documents/Node/data"
+    },
+    {
+      "label": "db",
+      "sup": "/Users/yishan/Documents/Node/data",
+      "children": [
+        {
+          "label": "WiredTiger",
+          "sup": "/Users/yishan/Documents/Node/data/db"
+        },
+        {
+          "label": "WiredTiger.lock",
+          "sup": "/Users/yishan/Documents/Node/data/db"
+        },
+        {
+          "label": "WiredTiger.turtle",
+          "sup": "/Users/yishan/Documents/Node/data/db"
+        },
+        {
+          "label": "WiredTiger.wt",
+          "sup": "/Users/yishan/Documents/Node/data/db"
+        },
+        {
+          "label": "WiredTigerLAS.wt",
+          "sup": "/Users/yishan/Documents/Node/data/db"
+        },
+        {
+          "label": "_mdb_catalog.wt",
+          "sup": "/Users/yishan/Documents/Node/data/db"
+        },
+        {
+          "label": "collection-0-6636173229112178313.wt",
+          "sup": "/Users/yishan/Documents/Node/data/db"
+        },
+        {
+          "label": "collection-2-6636173229112178313.wt",
+          "sup": "/Users/yishan/Documents/Node/data/db"
+        },
+        {
+          "label": "collection-23-6636173229112178313.wt",
+          "sup": "/Users/yishan/Documents/Node/data/db"
+        },
+        {
+          "label": "collection-25-6636173229112178313.wt",
+          "sup": "/Users/yishan/Documents/Node/data/db"
+        },
+        {
+          "label": "collection-27-6636173229112178313.wt",
+          "sup": "/Users/yishan/Documents/Node/data/db"
+        },
+        {
+          "label": "collection-29-6636173229112178313.wt",
+          "sup": "/Users/yishan/Documents/Node/data/db"
+        },
+        {
+          "label": "diagnostic.data",
+          "sup": "/Users/yishan/Documents/Node/data/db",
+          "children": []
+        },
+        {
+          "label": "index-1-6636173229112178313.wt",
+          "sup": "/Users/yishan/Documents/Node/data/db"
+        },
+        {
+          "label": "index-24-6636173229112178313.wt",
+          "sup": "/Users/yishan/Documents/Node/data/db"
+        },
+        {
+          "label": "index-26-6636173229112178313.wt",
+          "sup": "/Users/yishan/Documents/Node/data/db"
+        },
+        {
+          "label": "index-28-6636173229112178313.wt",
+          "sup": "/Users/yishan/Documents/Node/data/db"
+        },
+        {
+          "label": "index-3-6636173229112178313.wt",
+          "sup": "/Users/yishan/Documents/Node/data/db"
+        },
+        {
+          "label": "index-30-6636173229112178313.wt",
+          "sup": "/Users/yishan/Documents/Node/data/db"
+        },
+        {
+          "label": "index-4-6636173229112178313.wt",
+          "sup": "/Users/yishan/Documents/Node/data/db"
+        },
+        {
+          "label": "journal",
+          "sup": "/Users/yishan/Documents/Node/data/db",
+          "children": [
+            {
+              "label": "WiredTigerLog.0000000001",
+              "sup": "/Users/yishan/Documents/Node/data/db/journal"
+            },
+            {
+              "label": "WiredTigerPreplog.0000000001",
+              "sup": "/Users/yishan/Documents/Node/data/db/journal"
+            },
+            {
+              "label": "WiredTigerPreplog.0000000002",
+              "sup": "/Users/yishan/Documents/Node/data/db/journal"
+            }
+          ]
+        },
+        {
+          "label": "mongod.lock",
+          "sup": "/Users/yishan/Documents/Node/data/db"
+        },
+        {
+          "label": "storage.bson",
+          "sup": "/Users/yishan/Documents/Node/data/db"
+        },
+        {
+          "label": "sizeStorer.wt",
+          "sup": "/Users/yishan/Documents/Node/data/db"
+        }
+      ]
+    },
+    {
+      "label": "metrics.2017-04-04T10-39-47Z-00000",
+      "sup": "/Users/yishan/Documents/Node/data/db/diagnostic.data"
+    }
+  ]
+}
