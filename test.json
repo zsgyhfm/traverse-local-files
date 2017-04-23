@@ -1,0 +1,55 @@
+{
+  "id": 0,
+  "label": "files",
+  "sup": "",
+  "children": [
+    {
+      "label": "1.1.html",
+      "sup": "/Users/yishan/Documents/Node/files"
+    },
+    {
+      "label": "1.2.html",
+      "sup": "/Users/yishan/Documents/Node/files"
+    },
+    {
+      "label": "文件1.html",
+      "sup": "/Users/yishan/Documents/Node/files"
+    },
+    {
+      "label": "文件夹1",
+      "sup": "/Users/yishan/Documents/Node/files",
+      "children": [
+        {
+          "label": "文件夹2",
+          "sup": "/Users/yishan/Documents/Node/files/文件夹1",
+          "children": [
+            {
+              "label": "文件夹3",
+              "sup": "/Users/yishan/Documents/Node/files/文件夹1/文件夹2",
+              "children": [
+                {
+                  "label": "文件4.html",
+                  "sup": "/Users/yishan/Documents/Node/files/文件夹1/文件夹2/文件夹3"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "文件夹1.1",
+      "sup": "/Users/yishan/Documents/Node/files",
+      "children": [
+        {
+          "label": "1.1.1.html",
+          "sup": "/Users/yishan/Documents/Node/files/文件夹1.1"
+        },
+        {
+          "label": "test1.html",
+          "sup": "/Users/yishan/Documents/Node/files/文件夹1.1"
+        }
+      ]
+    }
+  ]
+}
