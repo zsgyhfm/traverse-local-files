@@ -1,0 +1,34 @@
+{
+  "id": 0,
+  "label": "product",
+  "sup": "",
+  "children": [
+    {
+      "label": "橱柜",
+      "sup": "d:\\work-platform\\web\\参数配置\\product",
+      "children": []
+    },
+    {
+      "label": "衣柜",
+      "sup": "d:\\work-platform\\web\\参数配置\\product",
+      "children": [
+        {
+          "label": "TMYG",
+          "sup": "d:\\work-platform\\web\\参数配置\\product\\衣柜",
+          "children": [
+            {
+              "label": "5LYG",
+              "sup": "d:\\work-platform\\web\\参数配置\\product\\衣柜\\TMYG",
+              "children": [
+                {
+                  "label": "YG5-A001.json",
+                  "sup": "d:\\work-platform\\web\\参数配置\\product\\衣柜\\TMYG\\5LYG"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

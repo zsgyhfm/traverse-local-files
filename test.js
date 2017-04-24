@@ -25,10 +25,11 @@ var json = {
 }
     ;
 //记录父级目录
-var sup_mark = path.resolve('../files');
+//var sup_mark = path.resolve('../files');
 //获取文件列表
 function getDir_list(abslot_path) {
-    abslot_path = path.resolve(abslot_path)
+    abslot_path = path.resolve(abslot_path);
+    abslot_path = path.normalize(abslot_path)
     //记录当前文件夹的路径
     fs.readdir(abslot_path, function (err, files) {
 
@@ -39,7 +40,6 @@ function getDir_list(abslot_path) {
             var fp = path.join(abslot_path, val)
             //父级目录
             var sup_path = path.resolve(fp, '../');
-
             fs.stat(fp, function (err, stat) {
 
                 if (stat.isDirectory()) {
@@ -47,30 +47,29 @@ function getDir_list(abslot_path) {
                     var data = {
                         label: val,
                         sup: sup_path,
-                        //children: new Set()
                         children: []
                     };
                     //log('当前文件是---' + val+'父文件'+sup_path+'item===='+item);
                     //判断父级文件
                     //添加到json数组中
-                    parent_dir(json, data)
 
-                    //记录父级文件
-                    sup_mark = sup_path;
+                    parent_dir(json, data);
+
+
                     //递归
                     getDir_list(fp);
 
                 }
                 if (stat.isFile()) {
-
-                    //记录父级文件
-                    sup_mark = sup_path;
                     //log('当前文件是---' + val+'父文件'+sup_path+'item===='+item);
                     //创建目录文件
                     var data = {
                         label: val,
-                        sup: sup_path
-                    }
+                        sup:sup_path
+                    };
+
+                    //data.sup = path.normalize(data.sup)
+                    log(data.sup)
                     parent_dir(json, data)
                 }
 
@@ -107,7 +106,7 @@ function parent_dir(parent, child) {
 
 //写入文件
 function writefile(fp, data) {
-    data = JSON.stringify(data)
+    data = JSON.stringify(data);
     fs.writeFile(fp, data, {flag: 'w+'}, function (err) {
         if (err == null) {
             log('操作成功')
@@ -130,6 +129,7 @@ function search(arr, child) {
             //取得文件夹的名称
             var Dname = val.label;
             var child_sup = child.sup.substr(-Dname.length);
+
             //判断child json的父级
             if (Dname == child_sup) {
                 //判断是否已经存入
@@ -154,9 +154,17 @@ function search(arr, child) {
  * @param root
  */
 module.exports = function (fp,fname) {
+    if(fp==null){
+        throw new Error('没有指定遍历的目录地址')
+    }
+    if(fname==null){
+        throw new Error('没有指定写入的文件路径')
+    }
     filename = fname;
     //路径切片
-    var fpath = fp.split('/');
+    //先取得当前系统的 文件分隔符
+    var sep = path.sep;
+    var fpath = fp.split(sep);
     json.label = fpath[fpath.length-1];
     getDir_list(fp);
 
